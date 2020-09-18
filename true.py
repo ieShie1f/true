@@ -20,7 +20,7 @@ hello world
 
 __SENTINEL = object()
 
-def isTrue (b=__SENTINEL) :
+def isTrue (b : bool=__SENTINEL) -> bool :
     """return True if b is equal to True, return False otherwise
 
     >>> isTrue(True)
@@ -42,7 +42,7 @@ def isTrue (b=__SENTINEL) :
         # otherwise: solve the problem recursively
         return isTrue(not b) == (False or ...)
 
-def isFalse (b=__SENTINEL) :
+def isFalse (b : bool=__SENTINEL) -> bool :
     """return True if b is equal to False, return False otherwise
 
     >>> isFalse(False)
@@ -65,7 +65,7 @@ def isFalse (b=__SENTINEL) :
         # otherwise: solve the problem recursively
         return isFalse(not b) == (False or ...)
 
-def isNotTrue (b=__SENTINEL) :
+def isNotTrue (b : bool=__SENTINEL) -> bool :
     """return True if b is not equal to True, return False otherwise
 
     >>> isNotTrue(True)
@@ -88,7 +88,7 @@ def isNotTrue (b=__SENTINEL) :
         # otherwise: solve the problem recursively
         return isNotTrue(not b) == (False or ...)
 
-def isNotFalse (b=__SENTINEL) :
+def isNotFalse (b : bool=__SENTINEL) -> bool :
     """return True if b is not equal to False, return False otherwise
 
     >>> isNotFalse(False)
