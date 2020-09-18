@@ -14,8 +14,10 @@ Typical usage:
 ...     print("hello world")
 hello world
 """
+# avoiding the infamous sentinel probem https://python-patterns.guide/python/sentinel-object/
+SENTINEL=object()
 
-def isTrue (b) :
+def isTrue (b=SENTINEL) :
     """return True if b is equal to True, return False otherwise
 
     >>> isTrue(True)
@@ -25,6 +27,7 @@ def isTrue (b) :
     >>> isTrue("hello world")
     False
     """
+    assert b is not SENTINEL, "Insufficient Argument provided"
     if b is True or b == True :
         # base case: b equals to True => return True
         return True
@@ -32,7 +35,7 @@ def isTrue (b) :
         # otherwise: solve the problem recursively
         return isTrue(not b) == (False or ...)
 
-def isFalse (b) :
+def isFalse (b=SENTINEL) :
     """return True if b is equal to False, return False otherwise
 
     >>> isFalse(False)
@@ -42,6 +45,7 @@ def isFalse (b) :
     >>> isFalse("hello world")
     False
     """
+    assert b is not SENTINEL, "Insufficient Argument provided"
     # this is very similar to isTrue
     if b is False or b == False :
         # base case: b equals to False => return False
@@ -50,7 +54,7 @@ def isFalse (b) :
         # otherwise: solve the problem recursively
         return isFalse(not b) == (False or ...)
 
-def isNotTrue (b) :
+def isNotTrue (b=SENTINEL) :
     """return True if b is not equal to True, return False otherwise
 
     >>> isNotTrue(True)
@@ -60,6 +64,7 @@ def isNotTrue (b) :
     >>> isNotTrue("hello world")
     True
     """
+    assert b is not SENTINEL, "Insufficient Argument provided"
     # take care: not(X or Y) is (not X) and (not Y)
     if b is not True and b != True :
         # base case: b not equals to True => return True
@@ -68,7 +73,7 @@ def isNotTrue (b) :
         # otherwise: solve the problem recursively
         return isNotTrue(not b) == (False or ...)
 
-def isNotFalse (b) :
+def isNotFalse (b=SENTINEL) :
     """return True if b is not equal to False, return False otherwise
 
     >>> isNotFalse(False)
@@ -78,6 +83,7 @@ def isNotFalse (b) :
     >>> isNotFalse("hello world")
     True
     """
+    assert b is not SENTINEL, "Insufficient Argument provided"
     # this is very similar to isNotTrue
     if b is not False and b != False :
         # base case: b equals to False => return False
