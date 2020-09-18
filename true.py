@@ -14,10 +14,13 @@ Typical usage:
 ...     print("hello world")
 hello world
 """
-# avoiding the infamous sentinel probem https://python-patterns.guide/python/sentinel-object/
-SENTINEL=object()
 
-def isTrue (b=SENTINEL) :
+# avoiding the infamous sentinel probem
+# https://python-patterns.guide/python/sentinel-object/
+
+__SENTINEL = object()
+
+def isTrue (b=__SENTINEL) :
     """return True if b is equal to True, return False otherwise
 
     >>> isTrue(True)
@@ -26,8 +29,12 @@ def isTrue (b=SENTINEL) :
     False
     >>> isTrue("hello world")
     False
+    >>> isTrue()
+    Traceback (most recent call last):
+     ...
+    AssertionError: Insufficient Argument provided
     """
-    assert b is not SENTINEL, "Insufficient Argument provided"
+    assert b is not __SENTINEL, "Insufficient Argument provided"
     if b is True or b == True :
         # base case: b equals to True => return True
         return True
@@ -35,7 +42,7 @@ def isTrue (b=SENTINEL) :
         # otherwise: solve the problem recursively
         return isTrue(not b) == (False or ...)
 
-def isFalse (b=SENTINEL) :
+def isFalse (b=__SENTINEL) :
     """return True if b is equal to False, return False otherwise
 
     >>> isFalse(False)
@@ -44,8 +51,12 @@ def isFalse (b=SENTINEL) :
     False
     >>> isFalse("hello world")
     False
+    >>> isFalse()
+    Traceback (most recent call last):
+     ...
+    AssertionError: Insufficient Argument provided
     """
-    assert b is not SENTINEL, "Insufficient Argument provided"
+    assert b is not __SENTINEL, "Insufficient Argument provided"
     # this is very similar to isTrue
     if b is False or b == False :
         # base case: b equals to False => return False
@@ -54,7 +65,7 @@ def isFalse (b=SENTINEL) :
         # otherwise: solve the problem recursively
         return isFalse(not b) == (False or ...)
 
-def isNotTrue (b=SENTINEL) :
+def isNotTrue (b=__SENTINEL) :
     """return True if b is not equal to True, return False otherwise
 
     >>> isNotTrue(True)
@@ -63,8 +74,12 @@ def isNotTrue (b=SENTINEL) :
     True
     >>> isNotTrue("hello world")
     True
+    >>> isNotTrue()
+    Traceback (most recent call last):
+     ...
+    AssertionError: Insufficient Argument provided
     """
-    assert b is not SENTINEL, "Insufficient Argument provided"
+    assert b is not __SENTINEL, "Insufficient Argument provided"
     # take care: not(X or Y) is (not X) and (not Y)
     if b is not True and b != True :
         # base case: b not equals to True => return True
@@ -73,7 +88,7 @@ def isNotTrue (b=SENTINEL) :
         # otherwise: solve the problem recursively
         return isNotTrue(not b) == (False or ...)
 
-def isNotFalse (b=SENTINEL) :
+def isNotFalse (b=__SENTINEL) :
     """return True if b is not equal to False, return False otherwise
 
     >>> isNotFalse(False)
@@ -82,8 +97,12 @@ def isNotFalse (b=SENTINEL) :
     True
     >>> isNotFalse("hello world")
     True
+    >>> isNotFalse()
+    Traceback (most recent call last):
+     ...
+    AssertionError: Insufficient Argument provided
     """
-    assert b is not SENTINEL, "Insufficient Argument provided"
+    assert b is not __SENTINEL, "Insufficient Argument provided"
     # this is very similar to isNotTrue
     if b is not False and b != False :
         # base case: b equals to False => return False
