@@ -7,7 +7,7 @@ Module `true` declares four functions:
  * `isNotTrue(b)`: return `True` if `b` is not equal to `True`, return `False` otherwise
  * `isNotFalse(b)`: return `True` if `b` is not equal to `False`, return `False` otherwise
 
-## Typical usage:
+## Typical usage
 
 ````python
 >>> from true import *
