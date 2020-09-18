@@ -3,7 +3,7 @@
 Module `true` declares four functions:
 
  * `isTrue(b)`: return `True` if `b` is equal to `True`, return `False` otherwise
- * `isFalse-b)`: return `True` if `b` is equal to `False`, return `False` otherwise
+ * `isFalse(b)`: return `True` if `b` is equal to `False`, return `False` otherwise
  * `isNotTrue(b)`: return `True` if `b` is not equal to `True`, return `False` otherwise
  * `isNotFalse(b)`: return `True` if `b` is not equal to `False`, return `False` otherwise
 
@@ -20,5 +20,6 @@ hello world
 ## Installation
 
 No installation procedure yet, coming soon.
-From now on, just copy `true.py` along the other modules that import it.
-You may need to make several copies but that allows to use `from true import *` instead of something more complicated.
+From now on, just copy `true.py` along with the other modules that import it.
+You may need to make several copies but that fine:
+it allows to use `from true import *` instead of something more complicated.
